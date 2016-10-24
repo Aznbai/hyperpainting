@@ -112,15 +112,18 @@ section img {
 }
 
 #headline_main {
+    color: rgba(255, 255, 255, .85);
     padding-top: 40px;
     font-size: 150px;
     letter-spacing: -1px;
     font-family: 'Roboto-Black';
     -webkit-font-kerning: normal;
     font-kerning: normal;
-    color: #333;
+    /*color: #333;*/
     /*SHADOW DARK TO LIGHT*/
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 0 rgba(0, 0, 0, .3), 0 3px 0 rgba(0, 0, 0, .3), 0 4px 0 rgba(0, 0, 0, .25), 0 5px 0 rgba(0, 0, 0, .25), 0 6px 1px rgba(0, 0, 0, .20), 0 0 5px rgba(0, 0, 0, .20), 0 1px 3px rgba(170, 170, 170, .15), 0 3px 5px rgba(185, 185, 185, .15), 0 5px 10px rgba(187, 187, 187, .15), 0 10px 10px rgba(201, 201, 201, .1), 0 20px 20px rgba(204, 204, 204, .1);
+    /*text-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 0 rgba(0, 0, 0, .3), 0 3px 0 rgba(0, 0, 0, .3), 0 4px 0 rgba(0, 0, 0, .25), 0 5px 0 rgba(0, 0, 0, .25), 0 6px 1px rgba(0, 0, 0, .20), 0 0 5px rgba(0, 0, 0, .20), 0 1px 3px rgba(170, 170, 170, .15), 0 3px 5px rgba(185, 185, 185, .15), 0 5px 10px rgba(187, 187, 187, .15), 0 10px 10px rgba(201, 201, 201, .1), 0 20px 20px rgba(204, 204, 204, .1);*/
+    /*SHADOW LIGHT TO DARK*/
+    text-shadow: 0 1px 0 rgba(204, 204, 204, .3), 0 2px 0 rgba(201, 201, 201, .3), 0 3px 0 rgba(187, 187, 187, .3), 0 4px 0 rgba(185, 185, 185, .3), 0 5px 0 rgba(170, 170, 170, .3), 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
 }
 
 #subline_main {
