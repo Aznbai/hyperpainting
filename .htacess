@@ -1,0 +1,9 @@
+
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://www.%{habitator.com}/$1 [R=301,L]
+
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://www.%{habitator.com}/$1 [R=301,L]
