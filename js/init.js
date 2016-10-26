@@ -2,11 +2,43 @@ $(window).load(function() {
     // Animate loader off screen
     $(".preload").fadeOut(800);;
 });
+// function youTubes_makeDynamic() {
+//     var $ytIframes = $('iframe[src*="youtube.com"]');
+//     $ytIframes.each(function(i, e) {
+//         var $ytFrame = $(e);
+//         var ytKey;
+//         var tmp = $ytFrame.attr('src').split(/\//);
+//         tmp = tmp[tmp.length - 1];
+//         tmp = tmp.split('?');
+//         ytKey = tmp[0];
+//         var $ytLoader = $('<div class="ytLoader">');
+//         $ytLoader.append($('<img class="cover" src="https://i.ytimg.com/vi/' + ytKey + '/hqdefault.jpg">'));
+//         $ytLoader.append($('<span class="playBtn glyphicon glyphicon-picture" ></span>'));
+//         $ytLoader.data('$ytFrame', $ytFrame);
+//         $ytFrame.replaceWith($ytLoader);
+//         $ytLoader.click(function() {
+//             var $ytFrame = $ytLoader.data('$ytFrame');
+//             $ytFrame.attr('src', $ytFrame.attr('src') + '?autoplay=1');
+//             $ytLoader.replaceWith($ytFrame);
+//         });
+//     });
+// };
+
+
 $(document).ready(function() {
 
+    container = document.getElementById('hpwebgl');
+    options = {
+        videoId: 'C5xXAPcDOF8',
+        // width: $(window).width(),
+        start: 0
+    };
+    $('#loop').tubular(options);
 
     init();
     animate();
+    // youTubes_makeDynamic();
+
 });
 var container, hp, conttest, options, curr_hp_dir, onWindowResize, hpwidth, hpheight, camera, scene, manager, ambient, imageLoader, directionalLight, renderer, texture;
 var mouseX = 0,
@@ -17,16 +49,9 @@ var windowHalfY = window.innerHeight / 2;
 
 function init() {
     $('#parawrap').parallax({
-        imageSrc: "images/xhd_strip.png"
+        imageSrc: "images/xhd_strip.jpg"
     });
 
-    container = document.getElementById('hpwebgl');
-    options = {
-        videoId: 'C5xXAPcDOF8',
-        // width: $(window).width(),
-        start: 0
-    };
-    $('#loop').tubular(options);
 
     curr_hp_dir = Math.floor(Math.random() * 5 + 1); // Math.random() * (max - min) + min;
     camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 10000); //10000 camera hotizont!!
@@ -57,7 +82,7 @@ function init() {
     });
     // model
     var loader = new THREE.OBJLoader(manager);
-    loader.load('models/hyper.obj', function(object) {
+    loader.load('models/hyperjs.obj', function(object) {
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
                 child.material.map = texture;
