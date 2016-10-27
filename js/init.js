@@ -27,20 +27,21 @@ $(window).load(function() {
 
 $(document).ready(function() {
 
-    container = document.getElementById('hpwebgl');
-    options = {
-        videoId: 'C5xXAPcDOF8',
-        // width: $(window).width(),
-        start: 0
-    };
-    $('#loop').tubular(options);
+    wglContainer = document.getElementById('hpwebgl');
+    // options = {
+    //     videoId: 'C5xXAPcDOF8',
+    //     // width: $(window).width(),
+    //     start: 0
+    // };
+    // $('#loop').tubular(options);
+
 
     init();
     animate();
     // youTubes_makeDynamic();
 
 });
-var container, hp, conttest, options, curr_hp_dir, onWindowResize, hpwidth, hpheight, camera, scene, manager, ambient, imageLoader, directionalLight, renderer, texture;
+var wglContainer, hp, conttest, options, curr_hp_dir, onWindowResize, hpwidth, hpheight, camera, scene, manager, ambient, imageLoader, directionalLight, renderer, texture;
 var mouseX = 0,
     mouseY = 0,
     mouseScr = 0;;
@@ -54,8 +55,11 @@ function init() {
 
 
     curr_hp_dir = Math.floor(Math.random() * 5 + 1); // Math.random() * (max - min) + min;
-    camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 10000); //10000 camera hotizont!!
-    camera.position.z = 1250;
+    camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 5000); //5000 camera hotizont!!
+    camera.position.x = 2050;
+    camera.position.y = 850;
+    camera.position.z = 550;
+
     scene = new THREE.Scene();
     ambient = new THREE.AmbientLight(0x101030);
     directionalLight = new THREE.DirectionalLight(0xffeedd);
@@ -82,21 +86,21 @@ function init() {
     });
     // model
     var loader = new THREE.OBJLoader(manager);
-    loader.load('models/hyperjs.obj', function(object) {
+    loader.load('models/2.obj', function(object) {
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
                 child.material.map = texture;
             }
         });
-        object.position.y = -95;
-        object.position.z = -95;
+        object.position.y = 100;
+        object.position.z = 100;
         // object.position.y = -95;
         scene.add(object);
     }, onProgress, onError);
     //
     $('#hpwebgl').height(window.innerHeight);
     hpwidth = $('#hpwebgl').width();
-    // console.log("width of hp_container = " + hpwidth);
+    // console.log("width of hp_wglContainer = " + hpwidth);
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -105,7 +109,7 @@ function init() {
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     renderer.domElement.addEventListener('touchmove', onDocumentTouchMove, false);
     window.addEventListener('resize', onWindowResize, false);
-    container.appendChild(renderer.domElement);
+    wglContainer.appendChild(renderer.domElement);
     // $('body').on('resize', )
 }
 onWindowResize = function() {
@@ -119,14 +123,14 @@ onWindowResize = function() {
 }
 
 function onDocumentMouseMove(event) {
-    mouseX = (event.clientX - windowHalfX) * 0.2;
+    mouseX = (event.clientX - windowHalfX) * 2;
     mouseY = (event.clientY - windowHalfY) * 2;
 }
 
 function onDocumentTouchMove(event) {
     if (event.touches.length == 1) {
         event.preventDefault();
-        mouseX = (event.touches[0].pageX - windowHalfX) * 0.2;
+        mouseX = (event.touches[0].pageX - windowHalfX) * 2;
         mouseY = (event.touches[0].pageX - windowHalfY) * 2;
     }
 }
