@@ -111,16 +111,18 @@ section img {
 
 #hpwebgl {
     z-index: 1;
-    -webkit-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+    /*    -webkit-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.75);
+*/
 }
 
 #headline_main {
     color: rgba(255, 255, 255, .85);
     padding-top: 40px;
     font-size: 150px;
-    letter-spacing: -1px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
     font-family: 'Roboto-Black';
     -webkit-font-kerning: normal;
     font-kerning: normal;
